@@ -21,12 +21,42 @@
       /* style.css로 모듈화 시킴 */
     </style>
 
+    <script>
+        function hey(){
+            alert('안녕!!')
+            console.log('콘솔 로그 체크용입니다.')
+        }
+        let a = ['사과','수박','딸기','감']
+        console.log(a[0]) //사과
+        console.log(a[1]) //수박
+        console.log(a[2]) //딸기
+        console.log(a[3]) //감
+        //index는 [0]부터 시작한다. [1]부터가 아니다
+
+        // JavaScript의 Dictionary는 이처럼 쓰는것으로 이해
+        let b = {'name' : '영수', 'age' : 27}
+        console.log(b['name']) //영수
+        console.log(b['age']) //27
+        
+        let c = [
+            {'name' : '영수', 'age':27},
+            {'name' : '철수', 'age':13},
+            {'name' : '수희', 'age':31},
+        ]
+        console.log(c[0]['age']) //27
+        console.log(c[1]['age']) //13
+        console.log(c[2]['age']) //31
+        console.log(c[0]['name']) //영수
+        console.log(c[1]['name']) //철수
+        console.log(c[2]['name']) //수희
+    </script>
+
 </head>
 
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
-        <button>영화 기록하기</button>
+        <button onclick="hey()">영화 기록하기</button>
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
