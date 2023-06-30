@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>자바스크립트 문법 연습하기!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+    .button-part {
+        display: flex;
+        height: 50px;
+    }
+</style>
+<script>
+    //Javascript로 길게 복잡하게 써야하는 것을
+    document.getElementById("element").style.display = "none";
+    //jQuery로 보다 직관적으로, 간편하게 작성 할 수 있다.
+    $('#element').hide();
+
+    function checkResult() {
+        // ** 클릭 시 onclick ** 해당 함수 실행!!
+        // alert('안녕하세요')
+    
+        //id가 q1인 div에 a로 선언된 값을 텍스트로 입력
+        // let a = '사과'
+        // $('#q1').text(a)
+
+        //id가 q1인 div에 해당 배열의 값을 텍스트로 입력
+        let a = ['사과', '배', '감', '귤']
+        $('#q1').text(a[3])
+        //id가 q1인 div에 텍스트 스타일 색상을 빨간색으로 변경
+        $('#q1').css('color', 'red')
+        //id가 q1인 div에 텍스트 스타일 폰트 사이즈를 40px으로 변경
+        $('#q1').css('font-size', '40px')
+        
+        let b = {'name' : '영수', 'age' : 30}
+        $('#q2').text(b['name'])
+
+        let c = [
+            {'name' : '영철', 'age' : 34},
+            {'name' : '철희', 'age' : 23}
+        ]
+        $('#q3').text(c[1]['age'])
+    }
+</script>
+
+
+<body>
+    <div class="top-part">
+        <h1>자바스크립트 문법 연습하기!</h1>
+    </div>
+    <hr />
+    <br>
+    <h2>1. 함수</h2>
+    <div class="button-part">
+        <button onclick="checkResult()">결과 확인하기!</button>
+    </div>
+    <div class="list-part">
+        <h2>2. 리스트</h2>
+        <div id="q1">테스트</div>
+    </div>
+    <div class="dict-part">
+        <h2>3. 딕셔너리</h2>
+        <div id="q2">테스트</div>
+    </div>
+    <div>
+        <h2>4. 리스트 딕셔너리</h2>
+        <div id="q3">테스트</div>
+    </div>
+</body>
+
+</html>
