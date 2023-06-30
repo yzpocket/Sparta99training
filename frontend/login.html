@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .mytitle {
-            color:red;
-            font-size:40px;
+        @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Nanum+Gothic+Coding&family=Noto+Sans+KR&family=Noto+Serif+KR&family=Orbit&display=swap');
+
+        * {
+            font-family: 'Gothic A1', sans-serif;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'Noto Serif KR', serif;
+            font-family: 'Orbit', sans-serif;
         }
+
+        .mytitle {
+            color: red;
+            font-size: 40px;
+        }
+
         .mybtn {
             font-size: 12px;
             background-color: green;
             color: white;
         }
+
         .mytxt {
             color: green;
         }
     </style>
 </head>
-    <div></div>
+<div>
     <h1 class="mytitle">로그인 페이지</h1>
     <p class="mytxt">ID : <input type="text"></p>
     <p class="mytxt">PASS : <input type="password"></p>
     <button class="mybtn">로그인 하기</button>
+</div>
 </body>
+
 </html>
