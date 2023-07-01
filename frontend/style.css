@@ -29,11 +29,12 @@
 .mytitle>button {
     width: 200px;
     height: 50px;
+    color: white;
 
     /* 버튼의 백그라운드 색상 제거 (투명화) transprent */
     background-color: transparent;
-    color: white;
 
+    /* 테두리를 강조하여 꾸미기 */
     border-radius: 50px;
     border: 1px solid white;
 
