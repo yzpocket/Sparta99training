@@ -22,6 +22,9 @@
             padding: 10px;
             border: 1px solid;
         }
+        .red{
+            color: red;
+        }
     </style>
 
     <script>
@@ -47,11 +50,24 @@
                     // 이렇게 원하는 값만 추출되는 것을 개발자도구로 확인
                     console.log(name, rack_cnt, park_cnt)
                     // HTML에 넣을 차례
-                    let temp_html = `<tr>
-                                        <td>${name}</td>
-                                        <td>${rack_cnt}</td>
-                                        <td>${park_cnt}</td>
-                                    </tr>`
+
+                    // park_cnt가 5개 미만인 경우 .red style이 적용되도록 조건문 설정
+                    let temp_html = ``
+
+                    if (park_cnt<5){
+                        temp_html = `<tr class="red">
+                                            <td>${name}</td>
+                                            <td>${rack_cnt}</td>
+                                            <td>${park_cnt}</td>
+                                        </tr>`
+                                    } else {
+                        temp_html = `<tr>
+                                            <td>${name}</td>
+                                            <td>${rack_cnt}</td>
+                                            <td>${park_cnt}</td>
+                                        </tr>`
+                    }
+
                     $('#names-q1').append(temp_html)
                 })
             })
