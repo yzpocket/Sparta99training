@@ -41,8 +41,12 @@
                 // } else{
                 //     $('#temp').append("<span class='blue'>"+temp+"</span>")
                 // }
+                // 즉석으로 생각 흐름따라 단순하게 코딩하니 뭔가 효율이 엄청 떨어지는 코드다.
 
-                // 과제 해설에서는 
+                // 이 부분은 원래 class가 있는 span을 추가하는 것 말고
+                // 기존의 temp span에 클래스 속성을 red or blue로 변경되는 것을 생각..
+                // 속성을 바꾸려면 .attr(‘속성’,’값’)을 써야한다.
+                // 또한 과제 해설에서는 
                 // $('#temp').text(temp)
                 // 로 진행되었다. 
 
@@ -53,10 +57,8 @@
                 $('#temp').text(temp)
                 if (temp > 20){
                     $('#temp').attr('class','red')
-                    
                 } else{
                     $('#temp').attr('class','blue')
-                    
                 }
             })
         })
