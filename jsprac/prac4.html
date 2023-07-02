@@ -37,31 +37,23 @@
                 // console.log(rows)
 
                 // 반복문으로 들어오는지도 확인
+                //html에 강제입력되있는것 비워주고
+                $('#names-q1').empty()
                 rows.forEach((a) => {
-                //     console.log(a)
+                    //     console.log(a)
                     let name = a['stationName']
-                    let rack_count = a['rackTotCnt']
-                    let park_count = a['parkingBikeTotCnt']
-                    console.log(name, rack_count, park_count)
+                    let rack_cnt = a['rackTotCnt']
+                    let park_cnt = a['parkingBikeTotCnt']
+                    // 이렇게 원하는 값만 추출되는 것을 개발자도구로 확인
+                    console.log(name, rack_cnt, park_cnt)
+                    // HTML에 넣을 차례
+                    let temp_html = `<tr>
+                                        <td>${name}</td>
+                                        <td>${rack_cnt}</td>
+                                        <td>${park_cnt}</td>
+                                    </tr>`
+                    $('#names-q1').append(temp_html)
                 })
-                // 이렇게 원하는 값만 추출되는 것을 개발자도구로 확인
-
-                // HTML에 넣을 차례
-                // JSON 넣는 공식? 항상 반복되는 사이클 :
-                // 데이터를 가져온다 => 데이터중에서 list화시킬 부분을 추린다 => 반복문을 돌면서 => 필요한 정보만 꺼내고 => 조건문을 붙여서 구분한다
-
-                // ' ` '백틱 Backtick을 사용하고 있다.
-                // 백틱 문자열 내부에 변수 사용
-                // ex) const backtick = `this is ${val} backtick`;
-
-                //     let temp_html = ``
-                //     if (gu_value > 100) {
-                //         temp_html = `<li class="bad">${gu_name} : ${gu_value}</li>`
-                //     } else {
-                //         temp_html = `<li>${gu_name} : ${gu_value}</li>`
-                //     }
-                //     $('#names-q1').append(temp_html)
-                // })
             })
         }
     </script>
