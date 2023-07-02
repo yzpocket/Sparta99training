@@ -19,12 +19,45 @@
 
     <style>
         /* style.css로 모듈화 시킴 */
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
     </style>
 
     <script>
         $(document).ready(function () {
             fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
                 console.log(data)
+                
+                let temp = data['temp']
+                // 데이터 들어오는지 확인
+                console.log(temp)
+                $('#temp').empty()
+                // if (temp > 20){
+                //     $('#temp').append("<span class='red'>"+temp+"</span>")
+                // } else{
+                //     $('#temp').append("<span class='blue'>"+temp+"</span>")
+                // }
+
+                // 과제 해설에서는 
+                // $('#temp').text(temp)
+                // 로 진행되었다. 
+
+                // 검색을 통해서 확인한것
+                // 속성을 바꾸는 경우 .attr(‘속성’,’값’)을 쓸수 있다.
+                // 선택한 요소의 속성을 생성,수정 하는 동작
+                // 한번 사용해보자
+                $('#temp').text(temp)
+                if (temp > 20){
+                    $('#temp').attr('class','red')
+                    
+                } else{
+                    $('#temp').attr('class','blue')
+                    
+                }
             })
         })
     </script>
