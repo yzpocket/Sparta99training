@@ -19,10 +19,11 @@
 
     <style>
         /* style.css로 모듈화 시킴 */
-        .red{
+        .red {
             color: red;
         }
-        .blue{
+
+        .blue {
             color: blue;
         }
     </style>
@@ -31,7 +32,8 @@
         $(document).ready(function () {
             fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
                 console.log(data)
-                
+
+
                 let temp = data['temp']
                 // 데이터 들어오는지 확인
                 console.log(temp)
@@ -55,12 +57,59 @@
                 // 선택한 요소의 속성을 생성,수정 하는 동작
                 // 한번 사용해보자
                 $('#temp').text(temp)
-                if (temp > 20){
-                    $('#temp').attr('class','red')
-                } else{
-                    $('#temp').attr('class','blue')
+                if (temp > 20) {
+                    $('#temp').attr('class', 'red')
+                } else {
+                    $('#temp').attr('class', 'blue')
                 }
             })
+        })
+
+        // 본문 card 부분도 하드코딩이 아니라 API를 통해 card 형태로 붙이는것을 해보자.
+        // 리뷰들이 담긴 API를 받아오기부터 시작.
+        fetch("http://spartacodingclub.shop/web/api/movie").then(res => res.json()).then(data => {
+            // console.log(data)
+            // console.log(data['movies'])
+
+            let rows = data['movies']
+
+            //--------내가 자주 사용하던 반복문--------
+            // for (i = 0; i < rows.length; i++) {
+            //     console.log(rows[i]);
+            // }
+
+            //--------이 과정에서 주로 사용하는 반복문--------
+            $('#cards').empty()
+            rows.forEach((a) => {
+                // console.log(a)
+
+                // key값들을 변수에 각각 선언해서 담아보자
+                let title = a['title']
+                let desc = a['desc']
+                let comment = a['comment']
+                let star = a['star']
+                let image = a['image']
+                
+                console.log(title, desc, comment, star, image)
+                
+                // 별 추가 부분
+                let star_image = '⭐'.repeat(star)
+
+                let temp_html = `<div class="col">
+                                    <div class="card h-100">
+                                        <img src="${image}"
+                                            class="card-img-top" alt="..." />
+                                        <div class="card-body">
+                                            <h5 class="card-title">${title}</h5>
+                                            <p class="card-text">${desc}</p>
+                                            <p>${star_image}</p>
+                                            <p class="mycomment">${comment}</p>
+                                        </div>
+                                    </div>
+                                </div>`
+
+                $('#cards').append(temp_html)
+            });
         })
     </script>
 
@@ -104,7 +153,7 @@
         </div>
     </div>
     <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div id="cards" class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
