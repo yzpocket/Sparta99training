@@ -30,14 +30,18 @@
 
     <script>
         $(document).ready(function () {
+                    // DOM 관련 내용 
             fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
-                console.log(data)
+                // console.log(data)
 
 
                 let temp = data['temp']
+                    // let, var, const의 차이.
                 // 데이터 들어오는지 확인
                 console.log(temp)
+                
                 $('#temp').empty()
+                    // empty, remove의 차이.
                 // if (temp > 20){
                 //     $('#temp').append("<span class='red'>"+temp+"</span>")
                 // } else{
@@ -118,7 +122,7 @@
 <body>
     <div class="mytitle">
         <h1>내 생애 최고의 영화들</h1>
-        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
+        <div>현재 서울의 날씨 : <span id="temp">2020.4</span>도</div>
         <button onclick="hey()">영화 기록하기</button>
     </div>
     <div class="mypost">
