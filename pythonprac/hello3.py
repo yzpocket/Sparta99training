@@ -36,7 +36,7 @@ for li in titles:
     rate = li.select_one('.txt_grade').text.replace(',','')
     
     #텍스트가 내가 원하는 형태가 아닐 경우 가공을 할 수 있다.
-    #.strip() 을 붙이면 띄워쓰기를 없에줌
+    #.strip() 을 붙이면 양쪽 공백 제거 없에줌
     #.replace(',', '') ,와 공백을 없에줌
 
     # print(title)
