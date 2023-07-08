@@ -4,14 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <!-- 부트스트랩 참조에 2개가 중복되는줄 알았는데 서로 다른 기능을 위해 주입된 것이다. -->
+    <!-- .css로 끝나는 참조는 디자인을 위한 css가 주입되는것 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- .js로 끝나는 참조는 여러 기능들을 위한 javascript가 주입되는것 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+    <!-- 혹시나 나중에 웹 페이지 테마를 적용시킨다면 아래와 같은 theme.min.css가 필요 -->
+    <!-- 부가적인 테마 -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
     <title>스파르타 피디아</title>
     <!-- style.css 파일을 같은 폴더에 만들고, head 태그에서 불러오기 -->
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -29,6 +33,7 @@
     </style>
 
     <script>
+        //--- fetch 서울시 온도
         $(document).ready(function () {
                     // DOM 관련 내용 
             fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
@@ -66,13 +71,14 @@
                 } else {
                     $('#temp').attr('class', 'blue')
                 }
-            })
+            })//--- fetch 서울시 온도
         })
-
+        
         // 본문 card 부분도 하드코딩이 아니라 API를 통해 card 형태로 붙이는것을 해보자.
-        // 리뷰들이 담긴 API를 받아오기부터 시작.
+        // 리뷰들이 담긴 API를 통한 데이터를 받아오기부터 시작.
         fetch("http://spartacodingclub.shop/web/api/movie").then(res => res.json()).then(data => {
-            // console.log(data)
+
+            console.log(data)
             // console.log(data['movies'])
 
             let rows = data['movies']
@@ -99,6 +105,12 @@
                 // 별 추가 부분
                 let star_image = '⭐'.repeat(star)
 
+                // ` ` 로 백틱으로 ' " 등이 많기도하고 javascript에선 변수 넣기가 복잡했다.
+                // ${}로 들어간다. => 문자열 템플릿 
+                // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
+                // 템플릿 리터럴이란?
+                //템플릿 리터럴은 이중 따옴표 나 작은 따옴표 대신 백틱(` `) (grave accent) 을 이용합니다. 
+                //템플릿 리터럴은 또한 플레이스 홀더를 이용하여 표현식을 넣을 수 있는데, 이는 $와 중괄호( $ {expression} ) 로 표기할 수 있습니다.
                 let temp_html = `<div class="col">
                                     <div class="card h-100">
                                         <img src="${image}"
