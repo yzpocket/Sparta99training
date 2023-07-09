@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+
+    <script>
+        function hey() {
+            // // get 방식 테스트용
+            // // /test라는 URL에 요청을 해서 json데이터로 
+            // // 콘솔에 data를 찍자.
+            // fetch("/test").then(res => res.json()).then(data => {
+            //     console.log(data)
+            // })
+
+            // post 방식 테스트용 
+            // [1] 프론트의 hey버튼을 누르면, hey()가 실행되는데 FormData() 생성자(Constructor)는 새로운 FormData객체를 만듦
+            let formData = new FormData();
+            // [2] 아래 데이터가 append로 key/value 들로 채워지고 객체 변수인 formData에 담긴다.
+            formData.append("title_give", "블랙팬서");
+            // [3] 데이터가 있는 객체 formData는 fetch로 /test로 POST방식으로 app.py 백엔드로 이동된다. [요청]
+            fetch("/test", { method: "POST", body: formData })
+            // [9] -> app.py에서 jsonify를 통해 반환된 json 데이터를 json 형태로 [응답을 전송].
+                .then(res => res.json())
+            // [10] 그리고 위 전송된 json 데이터를 브라우저 console에 출력한다.
+                .then(data => {
+                    console.log(data)
+            })
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>제목을 입력합니다.</h1>
+    <button onclick="hey()">나는 버튼!</button>
+</body>
+
+</html>
