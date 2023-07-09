@@ -29,11 +29,10 @@
 - ** /jsprac jquery, fetch 기능 작동 확인용
 - ** /pythonprac requests, beautifulsoup, fetch를 활용한 웹 크롤링, MongoDB 연동
 - ** /projects
-       |- /01.prac : render_template 을 통한 view page 출력
-       |             request, jsonify 사용
-       |             GET,POST 요청
-       |- /02.mars :
-       |- /03.pedia :
-       |- /04.bucket :
-       |- /05.fan : 
+       |- /01.prac : render_template 을 통한 view page 출력, request, jsonify 사용,  GET,POST 요청
 
+아래 Repository 분리 단일 프로젝트화 진행
+02.mars :
+03.pedia :
+04.bucket :
+05.fan : 
